@@ -1,49 +1,50 @@
 <?php
+echo "Cadastro de Aluno";
 
-echo'<h1>Cadastro de aluno</h1>';
+echo '<pre>';
+var_dump($_POST);
 
+$nomeFormulario = $_POST['nome'];
 
-echo'<pre>';
-var_dump(
-    $_POST
-);
-
-
-$nome_formulario =$_POST['nome'];
-
-$dsn = 'mysql:dbname=chamadinha;host=127.0.0.1';
+$dsn = 'mysql:dbname=db_chamadinha;host=127.0.0.1';
 $user = 'root';
 $password = '';
- 
+
 $banco = new PDO($dsn, $user, $password);
 
-$insert='insert into tb_aluno(nome) values(:nome)';
+$insert='INSERT INTO tb_aluno (nome) VALUE (:nome)';
 
-$box=$banco->prepare($insert); 
+$box = $banco->prepare($insert);
+
 $box->execute([
-':nome'=> $nome_formulario
+    ':nome' => $nomeFormulario
 ]);
 
-$id_aluno =$banco->lastInsertId();
+$id_aluno = $banco->lastInsertId();
 
 echo $id_aluno;
 
 
-$tel_formulario =$_POST['tel'];
-$email_formulario=$_POST['email'];
-$img_formulario=$_POST['img'];
-$nasc_formulario=$_POST['nasc'];
-$frequente_formulario=$_POST['frequente'];
 
 
-$insert='insert into tb_info_alunos(telefone,email,nascimento,frequente,id_alunos,img) values(:telefone,:email,:nascimento,:frequente,:id_alunos,:img)';
 
-$box=$banco->prepare($insert); 
-$box->execute([
-':telefone'=> $tel_formulario,
-':email'=>$email_formulario,
-':nascimento'=>$nasc_formulario,
-'frequente'=>$frequente_formulario,
-'id_alunos'=>$id_aluno,
-'img'=>$img_formulario
+
+$telefoneFormulario = $_POST['tel'];
+$emailFormulario = $_POST['email'];
+$nascimentoFormulario = $_POST['nasc'];
+$frequenteFormulario = $_POST['frequente'];
+
+$imgFormulario = $_POST['img'];
+
+$inserte='INSERT INTO tb_info_alunos (telefone, email, nascimento, frequente, id_alunos, img) VALUE (:telefone, :email, :nascimento, :frequente, :id_alunos, :img)';
+
+$boxe = $banco->prepare($inserte);
+
+$boxe->execute([
+    ':telefone' => $telefoneFormulario,
+    ':email' => $emailFormulario,
+    ':nascimento' => $nascimentoFormulario,
+    ':frequente' => $frequenteFormulario,
+    ':id_alunos' => $id_aluno,
+    'img' => $imgFormulario,
 ]);
