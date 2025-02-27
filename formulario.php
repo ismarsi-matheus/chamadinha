@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
 
     <title>Formulário</title>
 </head>
+
 <body>
 
     <style>
@@ -15,24 +17,24 @@
             flex-direction: column;
             align-items: center;
         }
-    
+
         form {
             width: 600px;
         }
-    
+
         img {
             width: 200px;
             object-fit: cover;
         }
     </style>
 
-<main class="container text-center my-5">   
+    <main class="container text-center my-5">
 
-    <h2>CADASTRAR ALUNO</h2>
-    <br>
-    
+        <h2>CADASTRAR ALUNO</h2>
+        <br>
 
-    <!--
+
+        <!--
         METODO DE ENVIO
             GET, através da URL. POST, através do corpo do arquivo
 
@@ -41,42 +43,43 @@
     -->
 
 
-    <form action="./aluno-cadastrar.php" method="POST">
-
-        <div class="col">
-            <label for="img">imagem</label>
-            <input type="file" accept="image/*" class="form-control" name="img">
-        </div>
-
-        <label for="nome">Nome:</label class="form-control">
-        <input type="text"   class="form-control" name="nome">
-        <div class="row mt-2 ">
+        <form action="./aluno-cadastrar.php" method="POST">
 
             <div class="col">
-                <label for="telefone">Telefone:</label>
-                <input type="number"   class="form-control" name="tel">
+                <label for="img">imagem</label>
+                <input type="file" accept="image/*" class="form-control" name="img">
             </div>
 
-            <div class="col">
-                <label for="email">Email:</label>
-                <input type="email"   class="form-control" name="email">
+            <label for="nome">Nome:</label class="form-control">
+            <input type="text" class="form-control" name="nome">
+            <div class="row mt-2 ">
+
+                <div class="col">
+                    <label for="telefone">Telefone:</label>
+                    <input type="number" class="form-control" name="tel">
+                </div>
+
+                <div class="col">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
             </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col">
-                <label for="data_nascimento">Data de Nascimento:</label>
-                <input type="date"   class="form-control" name="nasc">
+            <div class="row mt-2">
+                <div class="col">
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" class="form-control" name="nasc">
+                </div>
+
+                <div class="col my-4 pt-2">
+                    <input type="checkbox" class="form-check-input" name="frequente">
+                    <label for="frequente">Frequente:</label>
+                </div>
             </div>
 
-            <div class="col my-4 pt-2">
-                <input type="checkbox" class="form-check-input" name="frequente">
-                <label for="frequente">Frequente:</label>
-            </div>
-        </div>
+            <input type="submit">
+        </form>
 
-        <input type="submit">
-    </form>
 
-    
 </body>
+
 </html>

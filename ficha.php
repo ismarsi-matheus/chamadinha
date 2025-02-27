@@ -4,7 +4,7 @@
 $id_aluno = $_GET['id_aluno'];
 
 
-$dsn = 'mysql:dbname=db_chamadinha;host=127.0.0.1';
+$dsn = 'mysql:dbname=chamadinha;host=127.0.0.1';
 $user = 'root';
 $password = '';
 
